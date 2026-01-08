@@ -1,5 +1,5 @@
 # Discord YouTube Alerts Bot
-This is a simple lightweight Discord Bot code that send messages when a new video from a specific YouTube channel is published to a Discord server channel of choice.
+This is a simple lightweight Discord Bot code that send messages when a new video from a specific YouTube channel is published to a Discord server channel of choice. Of course, this is not fully complete and still requires a lot of work to be done. Code is open-source and improvements are welcomed.
 
 ## Features
 
