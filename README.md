@@ -15,6 +15,7 @@ This is a simple lightweight Discord Bot code that send messages when a new vide
 - Improvements to frequency checks (slight delays but should be consistent, and must remain within YouTube API limits)
 - An additional slash command to add/point where the bot should announce to a specific Discord server channel with an unique ID
 - An additional slash command to add/point what role should the bot use to ping members that can be optionally used when announcing with an unique role ID (currently have to add the role ID manually in the code or use @everyone)
+- Easily configure which role can use slash commands (have to manually configure permissions through the code - set to Admin, and role must exist in the server for it to work)
 
 ## Installation
 
