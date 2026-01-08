@@ -22,7 +22,7 @@ We recommend adding your credientials and adding respective Discord server chann
 
 ```bash
 # Clone the repository
-git clone https://github.com/Andrew-Drive/Discord-YouTube-Alerts-Bot
+git clone https://github.com/Andrew-Drive/Discord-YouTube-Alerts-Bot.git
 
 # Navigate into the directory
 cd Discord-YouTube-Alerts-Bot
