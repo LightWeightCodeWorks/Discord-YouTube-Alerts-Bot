@@ -3,7 +3,7 @@ This is a simple lightweight Discord Bot code that send messages when a new vide
 
 ## Features
 
-- Uses three easy to configure slash commands to add, remove or list channel IDs being tracked
+- Uses easy to configure slash commands to add, remove or list channel IDs being tracked
 - Custom messages can be created when the bot shares a new video
 - Tune the frequency of checking videos with a customizable cron job
 - Uses environment variables to safely store your Discord Token, YouTube API Key, and Bot's Client ID (Used for registering commands)
