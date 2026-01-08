@@ -2,6 +2,7 @@
 This is a simple lightweight Discord Bot code that send messages when a new video from a specific YouTube channel is published to a Discord server channel of choice. Of course, this is not fully complete and still requires a lot of work to be done. Code is open-source and improvements are welcomed.
 
 <img src="https://raw.githubusercontent.com/Andrew-Drive/Discord-YouTube-Alerts-Bot/main/misc/exampleresult.png">
+<img src="https://raw.githubusercontent.com/Andrew-Drive/Discord-YouTube-Alerts-Bot/main/misc/slashcommands.png">
 (Example of the bot in action under the name "ConnectSocialsNotifier")
 
 ## Features
