@@ -45,6 +45,7 @@ node register-commands.js
 
 # Start the bot
 node index.js
+```
 
 You're done! Use the slash commands to begin adding a channel. (/add-channel)
 You will need the YouTube channel ID that you will want to track.
