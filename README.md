@@ -22,7 +22,7 @@ This is a simple lightweight Discord Bot code that send messages when a new vide
 ```bash
 # Set up the .env file
 DISCORD_TOKEN=YOUR DISCORD TOKEN
-CLIENT_ID=YOUR DISCORD BOT'S CLIENT ID
+CLIENT_ID=YOUR DISCORD BOT CLIENT ID
 YOUTUBE_API_KEY=YOUR YOUTUBE API KEY
 ```
 
