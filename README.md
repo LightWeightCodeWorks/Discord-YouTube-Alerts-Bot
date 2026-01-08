@@ -52,5 +52,5 @@ node register-commands.js
 node index.js
 ```
 
-You're done! Use the slash commands to begin adding a channel. (/add-channel)
+You're done! Use the slash commands to begin adding a channel. (/addchannel)
 You will need the YouTube channel ID that you will want to track. (PM2 is recommended for production use for starting the bot)
