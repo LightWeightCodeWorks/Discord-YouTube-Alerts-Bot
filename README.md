@@ -17,6 +17,15 @@ This is a simple lightweight Discord Bot code that send messages when a new vide
 - An additional slash command to add/point what role should the bot use to ping members that can be optionally used when announcing with an unique role ID (currently have to add the role ID manually in the code or use @everyone)
 - Easily configure which role can use slash commands (have to manually configure permissions through the code in the commands folder - currently set to Admin, and role must exist in the server for it to work)
 
+## What should the Environment Variables be like? (the .env file you must add yourself)
+
+```bash
+# Set up the .env file
+DISCORD_TOKEN=YOUR DISCORD TOKEN
+CLIENT_ID=YOUR DISCORD BOT'S CLIENT ID
+YOUTUBE_API_KEY=YOUR YOUTUBE API KEY
+```
+
 ## Installation
 
 We recommend adding your credientials and adding respective Discord server channel IDs before installing to your own server.
