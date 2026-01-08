@@ -14,4 +14,24 @@ This is a simple lightweight Discord Bot code that send messages when a new vide
 - An additional slash command to add/point where the bot should announce to a specific Discord server channel with an unique ID
 - An additional slash command to add/point what role should the bot use to ping members when used with an unique role ID (currently have to add the role ID manually in the code or use @everyone)
 
+## Installation
 
+We recommend adding your credientials and adding respective Discord server channel IDs before installing to your own server.
+
+```bash
+# Clone the repository
+git clone https://github.com/Andrew-Drive/Discord-YouTube-Alerts-Bot
+
+# Navigate into the directory
+cd Discord-YouTube-Alerts-Bot
+
+# Install dependencies
+npm install
+
+# Register slash commands
+node register-commands.js
+
+# Start the bot
+node index.js
+
+You're done! Use the slash commands to begin adding a channel. (/add-channel) You will need the YouTube channel ID that you will want to track.
