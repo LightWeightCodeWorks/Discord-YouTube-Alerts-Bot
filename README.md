@@ -33,7 +33,7 @@ YOUTUBE_API_KEY=YOUR YOUTUBE API KEY
 
 ## Installation
 
-We recommend adding your credientials and adding respective Discord server channel IDs before installing to your own server.
+We recommend adding your credientials and adding respective Discord server channel IDs before installing these files to your own bot/server.
 
 ```bash
 # Clone the repository
