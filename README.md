@@ -16,12 +16,10 @@ This is a simple Discord Bot code that send messages when a new video from a spe
 
 ## Things to add/improve
 
-- YouTube API Optimization: Fix a 403 Forbidden error by switching from the /search endpoint to the /activities endpoint. This is more reliable and typically has lower quota costs for fetching the latest channel uploads.
 - Improve multiuse for more than 1 Discord server with ease (currently writes Channel IDs in separate lines well, but delivery of alerts need to be in batches)
 - Improvements to frequency checks (slight delays but should be consistent, and must remain within YouTube API limits)
 - Better ease of use when creating custom messages when the bot shares a new video
 - An additional slash command to add/point what role should the bot use to ping members that can be optionally used when announcing with an unique role ID (currently have to add the role ID manually in the code or use @everyone)
-- Easily configure which role can use slash commands (have to manually configure permissions through the code in the commands folder - currently set to Admin, and role must exist in the server for it to work)
 
 ## What should the Environment Variables be like? (the .env file you must add yourself)
 
