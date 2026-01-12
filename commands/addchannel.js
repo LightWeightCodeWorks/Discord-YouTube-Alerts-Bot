@@ -48,7 +48,7 @@ module.exports = {
       await interaction.reply(`✅ Now tracking ${latestVideo.snippet.channelTitle}!`);
     } catch (err) {
       console.error(err);
-      await interaction.reply({ content: 'Error fetching YouTube data.', flags: MessageFlags.Ephemeral });
+      await interaction.reply({ content: 'Error fetching YouTube data. Is the channel ID correct?', flags: MessageFlags.Ephemeral });
     }
   }
 };
