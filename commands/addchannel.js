@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, MessageFlags } = require('discord.js');
+const { SlashCommandBuilder, MessageFlags, PermissionFlagsBits } = require('discord.js');
 const axios = require('axios');
 const fs = require('fs');
 
@@ -6,18 +6,22 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('addchannel')
     .setDescription('Start tracking a YouTube channel.')
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
     .addStringOption(opt =>
       opt.setName('channelid')
          .setDescription('The YouTube channel ID')
          .setRequired(true)
     ),
   async execute(interaction, trackedChannels) {
-    if (!interaction.member.roles.cache.some(role => role.name === 'Admin')) {
-      return interaction.reply({ content: 'You do not have Admin Level permissions to use this command.', flags: MessageFlags.Ephemeral });
-        }
+    const guildId = interaction.guild.id;
 
-        // If the user is an admin, execute the command
-        const guildId = interaction.guild.id;
+    if (!trackedChannels[guildId] || !trackedChannels[guildId].discordChannelId) {
+      return interaction.reply({ 
+        content: '❌ No alert channel has been set for this server. Please use `/setalertchannel` first to choose where notifications should be sent.', 
+        flags: MessageFlags.Ephemeral 
+      });
+    }
+
     const youtubeChannelId = interaction.options.getString('channelid');
 
     // Get latest video

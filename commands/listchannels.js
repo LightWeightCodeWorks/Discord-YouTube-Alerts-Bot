@@ -1,16 +1,12 @@
-const { SlashCommandBuilder, MessageFlags } = require('discord.js');
+const { SlashCommandBuilder, MessageFlags, PermissionFlagsBits } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('listchannels')
-    .setDescription('List all currently tracked YouTube channels for this server.'),
+    .setDescription('List all currently tracked YouTube channels for this server.')
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild),
 
   async execute(interaction, trackedChannels) {
-    if (!interaction.member.roles.cache.some(role => role.name === 'Admin')) {
-      return interaction.reply({ content: 'You do not have Admin Level permissions to use this command.', flags: MessageFlags.Ephemeral });
-        }
-
-        // If the user is an admin, execute the command
     const guildId = interaction.guild.id;
 
     if (!trackedChannels[guildId] || Object.keys(trackedChannels[guildId].youtubeChannels).length === 0) {
