@@ -68,7 +68,7 @@ async function checkForNewVideos() {
 
           const discordChannel = await client.channels.fetch(discordChannelId).catch(() => null);
           if (discordChannel) {
-            await discordChannel.send(`<@everyone> 📢 New YouTube video from ${latestVideo.channelTitle}! Feel free to check it out!\nhttps://youtu.be/${latestVideo.videoId}`).catch(console.error);
+            await discordChannel.send(`@everyone 📢 New YouTube video from ${latestVideo.channelTitle}! Feel free to check it out!\nhttps://youtu.be/${latestVideo.videoId}`).catch(console.error);
           } else {
             console.error(`Could not fetch alert channel ${discordChannelId} for guild ${guildId}. It may have been deleted.`);
           }
