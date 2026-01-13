@@ -17,7 +17,7 @@ This is a simple Discord Bot code that send messages when a new video from a spe
 
 ## Things to add/improve
 
-- Improve multiuse for more than 1 Discord server with ease (currently writes Channel IDs in separate lines well, but delivery of alerts need to be in batches)
+- Improve multiuse for more than 1 Discord server with ease (currently writes Channel IDs in separate lines through the JSON file well, but delivery of alerts need to be in batches)
 - Improvements to frequency checks (slight delays but should be consistent, and must remain within YouTube API limits)
 - Better ease of use when creating custom messages when the bot shares a new video
 - An additional slash command to add/point what role should the bot use to ping members that can be optionally used when announcing with an unique role ID (currently have to add the role ID manually in the code or use @everyone)
