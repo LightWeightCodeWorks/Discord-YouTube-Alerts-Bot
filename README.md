@@ -9,6 +9,7 @@ This is a simple Discord Bot code that send messages when a new video from a spe
 
 - Uses easy to configure slash commands to add, remove or list channel IDs being tracked
 - Point where the bot should announce an alert to a specific Discord server channel with it's unique ID
+- Optimizes the YouTube Data API v3 quota usage by using the /activities endpoint rather than the frequent /search endpoint which incurs an extremely high API quota cost
 - Tune the frequency of checking videos with a customizable cron job
 - So far, completely Javascript based - uses node.js to work through the process
 - Uses environment variables to safely store your Discord Token, YouTube API Key, and Bot's Client ID (Used for registering commands)
