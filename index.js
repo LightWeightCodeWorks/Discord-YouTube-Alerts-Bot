@@ -106,26 +106,5 @@ async function getUploadsBatch(channelIds) {
   }
 }
 
-async function getLatestVideo(channelId) {
-  try {
-    const activitiesUrl = `https://www.googleapis.com/youtube/v3/activities?key=${process.env.YOUTUBE_API_KEY}&channelId=${channelId}&part=snippet,contentDetails&maxResults=1&type=upload`;
-    const res = await axios.get(activitiesUrl);
-    
-    if (res.data.items && res.data.items.length > 0) {
-      const latestUpload = res.data.items[0];
-      if (latestUpload && latestUpload.contentDetails.upload) {
-        return {
-          id: { videoId: latestUpload.contentDetails.upload.videoId },
-          snippet: { channelTitle: latestUpload.snippet.channelTitle }
-        };
-      }
-    }
-    return null;
-  } catch (err) {
-    console.error('YouTube API error:', err.message);
-    return null;
-  }
-}
-
 client.login(process.env.DISCORD_TOKEN);
 
