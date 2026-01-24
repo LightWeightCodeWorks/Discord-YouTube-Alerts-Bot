@@ -32,7 +32,7 @@ module.exports = {
       const latestActivity = res.data.items[0];
 
       if (!latestActivity || !latestActivity.contentDetails.upload) {
-        return interaction.reply({ content: 'Could not fetch latest video. Is the channel ID correct?', flags: MessageFlags.Ephemeral });
+        return interaction.reply({ content: 'Could not fetch latest video. The channel requires at least one video upload.', flags: MessageFlags.Ephemeral });
       }
 
       trackedChannels[guildId].youtubeChannels[youtubeChannelId] = latestActivity.contentDetails.upload.videoId;
