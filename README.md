@@ -21,6 +21,7 @@ This is a simple Discord Bot code that send messages when a new video from a spe
 - More testing if this code is good for multiple servers/guilds (great for use with only one Discord bot)
 - Occassional updates to frequency checks (Well optimized with API already but check for issues now ad then)
 - Creating custom messages when the bot shares a new video (This is currently in discussion)
+- One more slash command to update the cron - time to check for video activity regularly? Leverage your own API key usage. (will make it easy to update by providing a time that converts it into a cron time into the code)
 
 ## What should the Environment Variables be like? (the .env file you must add yourself)
 
