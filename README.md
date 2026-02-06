@@ -1,5 +1,5 @@
 # Discord YouTube Alerts Bot
-This is a simple Discord Bot code that send messages when a new video from a specific YouTube channel is published to a Discord server channel of choice. Of course, this is not fully complete and still requires a lot of work to be done. Code is open-source and improvements are welcome.
+This is a simple Discord Bot code that send messages when a new video from a specific YouTube channel is published to a Discord server channel of choice. This bot has nearly every feature offered, and has easy configurations with /slash commands to help you get set up with sharing alert announcements with ease. Code is open-source and improvements are welcome.
 
 <img src="https://raw.githubusercontent.com/LightWeightCodeWorks/Discord-YouTube-Alerts-Bot/main/misc/exampleresult.png">
 <img src="https://raw.githubusercontent.com/LightWeightCodeWorks/Discord-YouTube-Alerts-Bot/main/misc/slashcommands.png">
@@ -9,18 +9,19 @@ This is a simple Discord Bot code that send messages when a new video from a spe
 
 - Uses easy to configure slash commands to add, remove or list channel IDs being tracked
 - Point where the bot should announce an alert to a specific Discord server channel with it's unique ID
+- Choose which role to ping for latest alert messages easily
 - Optimizes the YouTube Data API v3 quota usage by using the /activities endpoint rather than the frequent /search endpoint which incurs an extremely high API quota cost
 - Tune the frequency of checking videos with a customizable cron job
 - So far, completely Javascript based - uses node.js to work through the process
 - Uses environment variables to safely store your Discord Token, YouTube API Key, and Bot's Client ID (Used for registering commands)
-- Limit use of slash commands to a specific role, such as admins or staff (to prevent unwanted additions of channel IDs requested by normal users)
+- Limit use of slash commands to admins or staff (to prevent unwanted additions of channel IDs requested by normal users)
 
 ## Things to add/improve
 
-- Improve multiuse for more than 1 Discord server with ease (currently writes Channel IDs in separate lines through the JSON file well, but delivery of alerts need to be in batches)
-- Improvements to frequency checks (slight delays but should be consistent, and must remain within YouTube API limits)
-- Better ease of use when creating custom messages when the bot shares a new video
-- An additional slash command to add/point what role should the bot use to ping members that can be optionally used when announcing with an unique role ID (currently have to add the role ID manually in the code or use @everyone)
+- More testing if this code is good for multiple servers/guilds (great for use with only one Discord bot)
+- Occassional updates to frequency checks (Well optimized with API already but check for issues now ad then)
+- Creating custom messages when the bot shares a new video (This is currently in discussion)
+- One more slash command to update the cron - time to check for video activity regularly? Leverage your own API key usage. (will make it easy to update by providing a time that converts it into a cron time into the code)
 
 ## What should the Environment Variables be like? (the .env file you must add yourself)
 
