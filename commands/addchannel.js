@@ -24,28 +24,21 @@ module.exports = {
 
     const youtubeChannelId = interaction.options.getString('channelid');
 
-    // Get latest video
-    const url = `https://www.googleapis.com/youtube/v3/search?key=${process.env.YOUTUBE_API_KEY}&channelId=${youtubeChannelId}&part=snippet,id&order=date&maxResults=1&type=video`;
+    // Get latest video activity
+    const url = `https://www.googleapis.com/youtube/v3/activities?key=${process.env.YOUTUBE_API_KEY}&channelId=${youtubeChannelId}&part=snippet,contentDetails&maxResults=1&type=upload`;
 
     try {
       const res = await axios.get(url);
-      const latestVideo = res.data.items[0];
+      const latestActivity = res.data.items[0];
 
-      if (!latestVideo) {
-        return interaction.reply({ content: 'Could not fetch latest video. Is the channel ID correct?', flags: MessageFlags.Ephemeral });
+      if (!latestActivity || !latestActivity.contentDetails.upload) {
+        return interaction.reply({ content: 'Could not fetch latest video. The channel requires at least one video upload.', flags: MessageFlags.Ephemeral });
       }
 
-      if (!trackedChannels[guildId]) {
-        trackedChannels[guildId] = {
-          discordChannelId: interaction.channel.id,
-          youtubeChannels: {}
-        };
-      }
-
-      trackedChannels[guildId].youtubeChannels[youtubeChannelId] = latestVideo.id.videoId;
+      trackedChannels[guildId].youtubeChannels[youtubeChannelId] = latestActivity.contentDetails.upload.videoId;
       fs.writeFileSync('channels.json', JSON.stringify(trackedChannels, null, 2));
 
-      await interaction.reply(`✅ Now tracking ${latestVideo.snippet.channelTitle}!`);
+      await interaction.reply(`✅ Now tracking ${latestActivity.snippet.channelTitle}!`);
     } catch (err) {
       console.error(err);
       await interaction.reply({ content: 'Error fetching YouTube data. Is the channel ID correct?', flags: MessageFlags.Ephemeral });
