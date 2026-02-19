@@ -24,24 +24,31 @@ module.exports = {
 
     const youtubeChannelId = interaction.options.getString('channelid');
 
-    // Get latest video activity
-    const url = `https://www.googleapis.com/youtube/v3/activities?key=${process.env.YOUTUBE_API_KEY}&channelId=${youtubeChannelId}&part=snippet,contentDetails&maxResults=1&type=upload`;
+    // Get latest video
+    const url = `https://www.googleapis.com/youtube/v3/search?key=${process.env.YOUTUBE_API_KEY}&channelId=${youtubeChannelId}&part=snippet,id&order=date&maxResults=1&type=video`;
 
     try {
       const res = await axios.get(url);
-      const latestActivity = res.data.items[0];
+      const latestVideo = res.data.items[0];
 
-      if (!latestActivity || !latestActivity.contentDetails.upload) {
-        return interaction.reply({ content: 'Could not fetch latest video. The channel requires at least one video upload.', flags: MessageFlags.Ephemeral });
+      if (!latestVideo) {
+        return interaction.reply({ content: 'Could not fetch latest video. Is the channel ID correct?', flags: MessageFlags.Ephemeral });
       }
 
-      trackedChannels[guildId].youtubeChannels[youtubeChannelId] = latestActivity.contentDetails.upload.videoId;
+      if (!trackedChannels[guildId]) {
+        trackedChannels[guildId] = {
+          discordChannelId: interaction.channel.id,
+          youtubeChannels: {}
+        };
+      }
+
+      trackedChannels[guildId].youtubeChannels[youtubeChannelId] = latestVideo.id.videoId;
       fs.writeFileSync('channels.json', JSON.stringify(trackedChannels, null, 2));
 
-      await interaction.reply(`✅ Now tracking ${latestActivity.snippet.channelTitle}!`);
+      await interaction.reply(`✅ Now tracking ${latestVideo.snippet.channelTitle}!`);
     } catch (err) {
       console.error(err);
-      await interaction.reply({ content: 'Error fetching YouTube data. Is the channel ID correct?', flags: MessageFlags.Ephemeral });
+      await interaction.reply({ content: 'Error fetching YouTube data.', flags: MessageFlags.Ephemeral });
     }
   }
 };
